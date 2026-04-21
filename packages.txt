@@ -1,1 +1,1 @@
-# No system packages needed - OCR is optional and falls back gracefully
+
