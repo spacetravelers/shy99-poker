@@ -148,6 +148,53 @@ st.markdown("""<style>
     div[data-testid="column"]:nth-child(3) div[data-testid="stButton"] button:hover {
         background:#166534; border-color:#4ade80;
     }
+
+    /* ── Responsive / Mobile ─────────────────────────────────────────────────── */
+    .table-resp-wrap { width: 100%; }
+
+    /* Medium screens — tablet / small laptop */
+    @media screen and (max-width: 900px) {
+        .poker-table-inner   { zoom: 0.70; }
+        .trainer-table-inner { zoom: 0.58; }
+    }
+
+    /* Mobile phones */
+    @media screen and (max-width: 640px) {
+        /* Stack Streamlit columns to single column */
+        div[data-testid="stHorizontalBlock"] { flex-wrap: wrap !important; }
+        div[data-testid="column"] {
+            min-width: 100% !important;
+            flex: 1 0 100% !important;
+        }
+
+        /* Scale tables to fit full-width column */
+        .poker-table-inner   { zoom: 0.50; }
+        .trainer-table-inner { zoom: 0.42; }
+
+        /* Action box */
+        .action-label { font-size: 34px !important; letter-spacing: 2px !important; }
+        .action-box   { padding: 12px 14px !important; }
+
+        /* Stats */
+        .stat-value { font-size: 18px !important; }
+        .stat-label { font-size: 11px !important; }
+
+        /* Tabs */
+        .stTabs [data-baseweb="tab-list"] { gap: 2px !important; padding: 2px !important; }
+        .stTabs [data-baseweb="tab"] {
+            font-size: 11px !important;
+            padding: 6px 8px !important;
+        }
+
+        /* Range pills */
+        .range-pill { font-size: 9px !important; padding: 1px 4px !important; }
+
+        /* Prevent horizontal page scroll */
+        .stApp { overflow-x: hidden !important; }
+
+        /* Reasoning box */
+        .reasoning-box { font-size: 12px !important; }
+    }
 </style>""", unsafe_allow_html=True)
 
 
@@ -458,8 +505,9 @@ def render_poker_table(game_state: dict, num_opponents: int, decision: dict) -> 
     pot_s        = f"{int(pot):,}" if pot else "—"
 
     return (
-        f'<div style="position:relative;width:{W}px;height:{H}px;'
-        f'margin:12px auto;overflow:visible;font-family:Arial,sans-serif;">'
+        f'<div class="table-resp-wrap">'
+        f'<div class="poker-table-inner" style="position:relative;width:{W}px;height:{H}px;'
+        f'margin:0 auto;overflow:visible;font-family:Arial,sans-serif;">'
         f'<svg width="{W}" height="{H}" style="position:absolute;top:0;left:0;z-index:0;"'
         f' xmlns="http://www.w3.org/2000/svg">'
         f'<defs>'
@@ -489,7 +537,7 @@ def render_poker_table(game_state: dict, num_opponents: int, decision: dict) -> 
         f'<div class="pot-label">POT: {pot_s}</div>'
         f'</div></div>'
         + "".join(seats) +
-        f'</div>'
+        f'</div></div>'
     )
 
 
@@ -792,8 +840,9 @@ def render_trainer_table(gs: dict, hole_cards: tuple, community_cards: list = No
     )
 
     return (
-        f'<div style="position:relative;width:{W}px;height:{H}px;'
-        f'margin:4px auto;overflow:visible;font-family:Arial,sans-serif;">'
+        f'<div class="table-resp-wrap">'
+        f'<div class="trainer-table-inner" style="position:relative;width:{W}px;height:{H}px;'
+        f'margin:0 auto;overflow:visible;font-family:Arial,sans-serif;">'
         + svg_bg +
         f'<div style="position:absolute;left:0;top:0;width:{W}px;height:{H}px;z-index:1;'
         f'display:flex;align-items:{pot_align};justify-content:center;pointer-events:none;">'
@@ -807,7 +856,7 @@ def render_trainer_table(gs: dict, hole_cards: tuple, community_cards: list = No
         f'{to_call_html}'
         f'</div></div>'
         + "".join(html_seats) +
-        f'</div>'
+        f'</div></div>'
     )
 
 
