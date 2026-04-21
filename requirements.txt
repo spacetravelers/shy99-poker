@@ -1,0 +1,8 @@
+opencv-python>=4.8.0
+numpy>=1.24.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+easyocr>=1.7.0
+streamlit>=1.28.0
+treys>=0.1.0
+pandas>=2.0.0

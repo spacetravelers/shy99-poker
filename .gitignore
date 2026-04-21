@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Old versions & scratch files
+fix*.py
+gui.py
+trainer_v*.py
+trainer_app.py
+
+# Logs & temp
+*.log
+streamlit.log
+*.tmp
+
+# Windows
+*.bat
+*.ps1
+create_shortcuts.ps1
+Thumbs.db
+
+# Archives
+*.zip
+
+# Env
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Misc
+26.0.1
+C:pokerstreamlit.log

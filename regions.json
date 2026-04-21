@@ -1,0 +1,32 @@
+{
+  "_comment": "All coordinates are [x, y, w, h] at 1920x1080 baseline. Override these if dynamic detection fails.",
+  "baseline_resolution": [1920, 1080],
+
+  "hole_cards": {
+    "card_1": [830, 780, 70, 95],
+    "card_2": [910, 780, 70, 95]
+  },
+
+  "community_cards": {
+    "flop_1":  [710, 450, 70, 95],
+    "flop_2":  [795, 450, 70, 95],
+    "flop_3":  [880, 450, 70, 95],
+    "turn":    [965, 450, 70, 95],
+    "river":   [1050, 450, 70, 95]
+  },
+
+  "pot": {
+    "region": [840, 380, 240, 40]
+  },
+
+  "stacks": {
+    "hero":    [870, 870, 180, 30],
+    "villain": [870, 160, 180, 30]
+  },
+
+  "dealer_button": {
+    "search_radius": 60,
+    "hero_seat":    [920, 740],
+    "villain_seat": [920, 200]
+  }
+}
